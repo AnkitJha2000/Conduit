@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/feedFragment"
+        android:title="My Feed"
+        android:icon="@drawable/ic_my_feed"
+        />
+    <item
+        android:id="@+id/globalFeedFragment"
+        android:title="Global Feeds"
+        android:icon="@drawable/global_feed"
+        />
+    <item
+        android:id="@+id/addFeedFragment"
+        android:title="Add Article"
+        android:icon="@drawable/ic_add_article"
+        />
+    <item
+        android:id="@+id/profileFragment"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile"
+        />
+
+
+</menu>
