@@ -30,13 +30,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.mainBottomView.setupWithNavController(navController)
 
-        // AppBarConfiguration with the correct top-level destinations
         appBarConfiguration = AppBarConfiguration(
             topLevelDestinationIds = setOf(
                 R.id.feedFragment,
                 R.id.globalFeedFragment,
                 R.id.addFeedFragment,
-                R.id.profileDetailFragment,
+                R.id.profileFragment,
                 R.id.signUpFragment,
                 R.id.loginFragment
             )
@@ -65,5 +64,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 }
