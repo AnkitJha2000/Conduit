@@ -1,4 +1,4 @@
-package com.example.conduit.ui
+package com.example.conduit.ui.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle

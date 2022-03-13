@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SignUpFragment">
+    tools:context=".ui.fragments.SignUpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="signUp fragment" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/rlSignUp"
+        >
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/signUpEmailTextInputLayout"
+            android:hint="Email"
+            android:layout_margin="20dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            >
 
-</FrameLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Email"
+                android:id="@+id/signUpEmailEditText"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/signUpUsernameTextInputLayout"
+            android:hint="Username"
+            android:layout_centerInParent="true"
+            android:layout_margin="20dp"
+            android:layout_below="@+id/signUpEmailTextInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Username"
+                android:id="@+id/signUpUsernameEditText"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/signUpPasswordTextInputLayout"
+            android:hint="Password"
+            android:layout_centerInParent="true"
+            android:layout_margin="20dp"
+            android:layout_below="@+id/signUpUsernameTextInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Password"
+                android:id="@+id/signUpPasswordEditText"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="Sign Up"
+        android:id="@+id/SignUpBtn"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already Have An Account? Sign In."
+        style="@style/Widget.Material3.Button.TextButton"
+        android:textSize="15sp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/signUpPageAlreadyHaveAccount"
+        />
+
+</RelativeLayout>

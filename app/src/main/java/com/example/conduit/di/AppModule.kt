@@ -1,6 +1,7 @@
 package com.example.conduit.di
 
 import com.example.conduit.services.ConduitAPI
+import com.example.conduit.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,6 +15,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
+
+    @Provides
+    fun providesBaseUrl() : String = Constants.BASE_URL
 
     @Provides
     @Singleton
@@ -36,7 +40,6 @@ class AppModule {
     @Singleton
     @Provides
     fun provideApiService(retrofit: Retrofit): ConduitAPI = retrofit.create(ConduitAPI::class.java)
-
 
 
 }

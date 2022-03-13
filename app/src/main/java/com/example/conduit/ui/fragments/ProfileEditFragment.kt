@@ -1,4 +1,4 @@
-package com.example.conduit.ui
+package com.example.conduit.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

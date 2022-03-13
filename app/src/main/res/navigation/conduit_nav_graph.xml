@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.example.conduit.ui.SplashScreenFragment"
+        android:name="com.example.conduit.ui.fragments.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/feedFragment"
-        android:name="com.example.conduit.ui.FeedFragment"
+        android:name="com.example.conduit.ui.fragments.FeedFragment"
         android:label="fragment_feed"
         tools:layout="@layout/fragment_feed" >
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.conduit.ui.SignUpFragment"
+        android:name="com.example.conduit.ui.fragments.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.conduit.ui.LoginFragment"
+        android:name="com.example.conduit.ui.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -85,7 +85,7 @@
     </fragment>
     <fragment
         android:id="@+id/globalFeedFragment"
-        android:name="com.example.conduit.ui.GlobalFeedFragment"
+        android:name="com.example.conduit.ui.fragments.GlobalFeedFragment"
         android:label="fragment_global_feed"
         tools:layout="@layout/fragment_global_feed" >
         <action
@@ -99,12 +99,12 @@
     </fragment>
     <fragment
         android:id="@+id/articleDetailsFragment"
-        android:name="com.example.conduit.ui.ArticleDetailsFragment"
+        android:name="com.example.conduit.ui.fragments.ArticleDetailsFragment"
         android:label="fragment_article_details"
         tools:layout="@layout/fragment_article_details" />
     <fragment
         android:id="@+id/addFeedFragment"
-        android:name="com.example.conduit.ui.AddFeedFragment"
+        android:name="com.example.conduit.ui.fragments.AddFeedFragment"
         android:label="fragment_add_feed"
         tools:layout="@layout/fragment_add_feed" >
         <action
@@ -118,7 +118,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.conduit.ui.ProfileFragment"
+        android:name="com.example.conduit.ui.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -140,7 +140,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileDetailFragment"
-        android:name="com.example.conduit.ui.ProfileDetailFragment"
+        android:name="com.example.conduit.ui.fragments.ProfileDetailFragment"
         android:label="fragment_profile_detail"
         tools:layout="@layout/fragment_profile_detail" >
         <action
@@ -154,7 +154,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileEditFragment"
-        android:name="com.example.conduit.ui.ProfileEditFragment"
+        android:name="com.example.conduit.ui.fragments.ProfileEditFragment"
         android:label="fragment_profile_edit"
         tools:layout="@layout/fragment_profile_edit" >
         <action
