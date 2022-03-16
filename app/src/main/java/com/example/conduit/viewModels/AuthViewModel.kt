@@ -1,5 +1,6 @@
 package com.example.conduit.viewModels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,17 +20,21 @@ class AuthViewModel @Inject constructor(
     val signUpUser = MutableLiveData<UserResponse>()
     val loginUser = MutableLiveData<UserResponse>()
     val currentUser = MutableLiveData<UserResponse>()
-    val error = MutableLiveData<String>()
+    val error = MutableLiveData<String?>()
 
-    fun signUpUser(userSignUpRequest: SignUpRequest)= viewModelScope.launch{
+    fun signUpUser(userSignUpRequest: SignUpRequest) = viewModelScope.launch{
             repository.signUpUser(userSignUpRequest).let {
                 if(it.isSuccessful)
                 {
                     signUpUser.postValue(it.body())
+                    error.postValue(null)
+                    Log.d("signup successful",it.body()?.user?.username.toString())
                 }
                 else
                 {
                     error.postValue(it.message())
+                    Log.d("signup error",it.message())
+
                 }
             }
         }
@@ -39,21 +44,25 @@ class AuthViewModel @Inject constructor(
             if(it.isSuccessful)
             {
                 loginUser.postValue(it.body())
+                error.postValue(null)
+                Log.d("login successful",it.body()?.user?.username.toString())
             }
             else
             {
                 error.postValue(it.message())
-            }
-        }
-    }
-
-    fun getCurrentUser(token : String) = viewModelScope.launch {
-        repository.getCurrentUser(token).let {
-            if(it.data == null)
-            {
+                Log.d("login error",it.message())
 
             }
         }
     }
+
+//    fun getCurrentUser(token : String) = viewModelScope.launch {
+//        repository.getCurrentUser(token).let {
+//            if(it.data == null)
+//            {
+//
+//            }
+//        }
+//    }
 
 }

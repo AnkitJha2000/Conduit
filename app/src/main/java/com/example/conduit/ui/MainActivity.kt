@@ -22,6 +22,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    var token: String? = null
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController : NavController
     private lateinit var binding: ActivityMainBinding
@@ -29,6 +30,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        token = OfflineSharedPreference(this).getToken()
+        // Log.d("TEST","RETRIVED TOKEN $token")
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -65,6 +70,12 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.splashScreenFragment -> {
                     binding.mainToolbar.visibility = View.GONE
+                    binding.mainBottomView.visibility = View.GONE
+                }
+                R.id.signUpFragment->{
+                    binding.mainBottomView.visibility = View.GONE
+                }
+                R.id.loginFragment->{
                     binding.mainBottomView.visibility = View.GONE
                 }
                 else -> {

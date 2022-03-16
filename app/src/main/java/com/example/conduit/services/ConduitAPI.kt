@@ -19,15 +19,15 @@ import retrofit2.http.*
 interface ConduitAPI {
 
     // signUp the user
-    @POST("users")
+    @POST("users/?")
     suspend fun signUpUser(
-        @Body userCreds: SignUpRequest
+        @Body signUpRequest: SignUpRequest
     ) : Response<UserResponse>
 
     // login the user
-    @POST("users")
+    @POST("users/login?")
     suspend fun loginUser(
-        @Body userCreds: LoginRequest
+        @Body loginRequest: LoginRequest
     ) : Response<UserResponse>
 
     // get articles by author favorited and tags

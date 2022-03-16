@@ -3,18 +3,19 @@ package com.example.conduit.dao
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
-import javax.inject.Inject
+import android.util.Log
 
-class OfflineSharedPreference @Inject constructor(activity: Activity) {
+class OfflineSharedPreference (activity: Activity) {
 
     private val sharedPreferences: SharedPreferences = activity.getSharedPreferences("sharedPreference", Context.MODE_PRIVATE)
 
     private var editor: SharedPreferences.Editor = sharedPreferences.edit()
 
     fun saveToken(token : String){
-        editor.putString("token Auth",token)
+        Log.d("TEST",token)
+        editor.putString("token",token).apply()
     }
 
-    fun getToken() = sharedPreferences.getString("token Auth",null)
+    fun getToken() = sharedPreferences.getString("token",null)
 
 }
