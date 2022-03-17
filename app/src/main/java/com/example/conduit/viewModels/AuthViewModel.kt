@@ -56,13 +56,17 @@ class AuthViewModel @Inject constructor(
         }
     }
 
-//    fun getCurrentUser(token : String) = viewModelScope.launch {
-//        repository.getCurrentUser(token).let {
-//            if(it.data == null)
-//            {
-//
-//            }
-//        }
-//    }
+    fun getCurrentUser(token : String) = viewModelScope.launch {
+        repository.getCurrentUser(token).let {
+            if(it.isSuccessful)
+            {
+                currentUser.postValue(it.body()!!)
+            }
+            else
+            {
+                error.postValue(it.message())
+            }
+        }
+    }
 
 }

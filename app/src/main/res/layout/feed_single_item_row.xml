@@ -1,6 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    style="@style/Widget.Material3.CardView.Elevated"
+    app:cardElevation="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_margin="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_feed_title"
+            android:text="this is the title of the article"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_feed_author"
+            android:text="author of the feed"
+            android:textSize="15sp"
+            android:layout_below="@id/item_feed_title"
+            android:layout_marginStart="10dp"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_feed_profile_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_profile_face" />
+
+        <TextView
+            android:id="@+id/item_static_created_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="Created At :" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/item_feed_createdAt"
+            android:layout_toEndOf="@id/item_static_created_at"
+            android:text="24/02/2022 23:00" />
+
+
+        <ImageButton
+            android:id="@+id/item_favorite_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="40dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:src="@drawable/baseline_favorite_border_black_24dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="count"
+            android:id="@+id/item_favorite_count"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="20dp"
+
+            />
+
+        <Button
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@id/item_favorite_button"
+            android:text="edit"
+            android:visibility="gone"
+            android:id="@+id/item_feed_edit_btn"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_feed_author"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/item_feed_details"
+            android:layout_toLeftOf="@id/item_feed_profile_image"
+            android:text="details of the article" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_feed_tags"
+            android:layout_above="@id/item_static_created_at"
+            android:text="tags of this feed are"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            />
+
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

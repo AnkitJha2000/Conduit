@@ -3,6 +3,7 @@ package com.example.conduit.repository
 import android.util.Log
 import com.example.conduit.models.requests.LoginRequest
 import com.example.conduit.models.requests.SignUpRequest
+import com.example.conduit.models.responses.ArticlesResponse
 import com.example.conduit.models.responses.UserResponse
 import com.example.conduit.services.ConduitAPI
 import com.example.conduit.utils.Status
@@ -28,16 +29,14 @@ class MainRepository @Inject constructor(
         Log.d("signupresponse",loginresponse.message())
         return loginresponse
     }
-    suspend fun getCurrentUser(token: String) : Status<UserResponse> {
+    suspend fun getCurrentUser(token: String) : Response<UserResponse> {
         val response = apiService.getCurrentUser(token)
-        response.let {
-            return if(it.isSuccessful) {
-                Status.Success(it.body()!!)
-            } else {
-                Log.d("error",it.message())
-                Status.Error("error occurred",it.body())
-            }
-        }
+        return response
+    }
+
+    suspend fun getArticles() : Response<ArticlesResponse> {
+        val response = apiService.getArticles()
+        return response
     }
 
 

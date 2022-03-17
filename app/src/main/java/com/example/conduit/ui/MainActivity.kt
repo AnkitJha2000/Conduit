@@ -16,6 +16,7 @@ import com.example.conduit.R
 import com.example.conduit.dao.OfflineSharedPreference
 import com.example.conduit.databinding.ActivityMainBinding
 import com.example.conduit.viewModels.AuthViewModel
+import com.example.conduit.viewModels.FeedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -27,12 +28,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController : NavController
     private lateinit var binding: ActivityMainBinding
     val authViewModel: AuthViewModel by viewModels()
+    val feedViewModel : FeedViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         token = OfflineSharedPreference(this).getToken()
-        // Log.d("TEST","RETRIVED TOKEN $token")
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -61,6 +62,16 @@ class MainActivity : AppCompatActivity() {
 
         visibilityItems()
 
+        preLoadData()
+
+    }
+
+    private fun preLoadData() {
+        if(token != null)
+        {
+            authViewModel.getCurrentUser(token!!)
+            feedViewModel.getArticles()
+        }
     }
 
     override fun onSupportNavigateUp() = navController.navigateUp(appBarConfiguration)
