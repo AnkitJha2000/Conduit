@@ -7,17 +7,16 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.conduit.R
+import com.example.conduit.customClickListener.CellClickListener
 import com.example.conduit.models.entities.Article
 import com.example.conduit.utils.Constants
-import kotlinx.coroutines.NonDisposableHandle.parent
 
-class FeedAdapter(val feedType : String) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>(){
+class FeedAdapter(val feedType : String,private val cellClickListener: CellClickListener) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>(){
     inner class FeedViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val itemTitle: TextView = itemView.findViewById(R.id.item_feed_title)
         val itemAuthor: TextView = itemView.findViewById(R.id.item_feed_author)
@@ -78,10 +77,33 @@ class FeedAdapter(val feedType : String) : RecyclerView.Adapter<FeedAdapter.Feed
         {
             holder.itemEditButton.visibility = View.GONE
         }
+
+        holder.itemView.setOnClickListener {
+            cellClickListener.onFeedItemClickListener()
+        }
+
+        holder.itemEditButton.setOnClickListener {
+            cellClickListener.onFeedEditButtonClickListener()
+        }
+
+        if(feed.favorited!!)
+        {
+            holder.itemFavoriteButton.setImageResource(R.drawable.baseline_favorite_black_24dp)
+        }
+        else{
+            holder.itemFavoriteButton.setImageResource(R.drawable.baseline_favorite_border_black_24dp)
+        }
+
+        holder.itemFavoriteButton.setOnClickListener{
+            cellClickListener.onFeedFavoriteButtonClickListener(feed.slug, feed.favorited)
+        }
+
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
+
+
 
 }

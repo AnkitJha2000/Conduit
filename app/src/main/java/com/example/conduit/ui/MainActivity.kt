@@ -69,8 +69,9 @@ class MainActivity : AppCompatActivity() {
     private fun preLoadData() {
         if(token != null)
         {
-            authViewModel.getCurrentUser(token!!)
-            feedViewModel.getArticles()
+            val tokenFormatted = "Token $token"
+            authViewModel.getCurrentUser(tokenFormatted)
+            feedViewModel.getArticles(tokenFormatted)
         }
     }
 

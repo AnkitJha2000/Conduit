@@ -33,6 +33,7 @@ interface ConduitAPI {
     // get articles by author favorited and tags
     @GET("articles")
     suspend fun getArticles(
+        @Header ("Authorization") token:String?,
         @Query("author") author : String? = null,
         @Query("favorited") favorited : String? = null,
         @Query("tag") tag : String? = null
@@ -92,15 +93,15 @@ interface ConduitAPI {
     // add article to favorite
     @POST("articles/{slug}/favorite")
     suspend fun favoriteArticle(
-        @Header("Authorization") token : String,
-        @Path("slug") slug : String
+        @Path("slug") slug : String,
+        @Header("Authorization") token : String?
     ) : Response<ArticlesResponse>
 
     // delete article from favorite
     @DELETE("articles/{slug}/favorite")
     suspend fun unfavoriteArticle(
-        @Header("Authorization") token : String,
-        @Path("slug") slug : String
+        @Path("slug") slug : String,
+        @Header("Authorization") token : String?
     ) : Response<ArticlesResponse>
 
     // for adding comment

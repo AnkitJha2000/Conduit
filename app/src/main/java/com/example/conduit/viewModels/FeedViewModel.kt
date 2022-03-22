@@ -13,17 +13,44 @@ import javax.inject.Inject
 class FeedViewModel @Inject constructor(val repository : MainRepository) : ViewModel() {
 
     val globalArticlesResponse = MutableLiveData<ArticlesResponse>()
-    val feedError = MutableLiveData<String>()
+    val feedError = MutableLiveData<String?>()
+    val favorited = MutableLiveData<ArticlesResponse>()
+    val favoritedError = MutableLiveData<String>()
 
-    fun getArticles() = viewModelScope.launch {
-        repository.getArticles().let {
+    fun getArticles(token: String) = viewModelScope.launch {
+        repository.getArticles(token).let {
             if(it.isSuccessful)
             {
+                feedError.postValue(null)
                 globalArticlesResponse.postValue(it.body())
             }
             else
             {
                 feedError.postValue(it.message())
+            }
+        }
+    }
+
+    fun favoriteArticle(token :String , slug : String) = viewModelScope.launch {
+        repository.favoriteArticle(token,slug).let {
+            if(it.isSuccessful)
+            {
+                favorited.postValue(it.body())
+            }
+            else{
+                favoritedError.postValue(it.message())
+            }
+        }
+    }
+
+    fun unfavoritedArticle(token : String,slug: String) = viewModelScope.launch {
+        repository.unfavoriteArticle(token,slug).let {
+            if(it.isSuccessful)
+            {
+                favorited.postValue(it.body())
+            }
+            else{
+                favoritedError.postValue(it.message())
             }
         }
     }

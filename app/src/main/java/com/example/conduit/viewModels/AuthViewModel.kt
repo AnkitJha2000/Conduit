@@ -60,10 +60,13 @@ class AuthViewModel @Inject constructor(
         repository.getCurrentUser(token).let {
             if(it.isSuccessful)
             {
+                Log.d("currentUser",it.body().toString())
                 currentUser.postValue(it.body()!!)
+                error.postValue(null)
             }
             else
             {
+                Log.d("currentUserError",it.message().toString())
                 error.postValue(it.message())
             }
         }

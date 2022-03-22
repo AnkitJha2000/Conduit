@@ -1,6 +1,7 @@
 package com.example.conduit.repository
 
 import android.util.Log
+import com.example.conduit.models.entities.User
 import com.example.conduit.models.requests.LoginRequest
 import com.example.conduit.models.requests.SignUpRequest
 import com.example.conduit.models.responses.ArticlesResponse
@@ -34,10 +35,22 @@ class MainRepository @Inject constructor(
         return response
     }
 
-    suspend fun getArticles() : Response<ArticlesResponse> {
-        val response = apiService.getArticles()
+    suspend fun getArticles(token: String) : Response<ArticlesResponse> {
+        val response = apiService.getArticles(token)
         return response
     }
 
+    suspend fun favoriteArticle(token: String , slug : String) : Response<ArticlesResponse> {
+        Log.d("tokenMainRepositoryF",token)
+        val response = apiService.favoriteArticle(slug,token)
+        return response
+    }
+
+    suspend fun unfavoriteArticle(token: String , slug: String) : Response<ArticlesResponse>
+    {
+        Log.d("tokenMainRepositoryU",token)
+        val response = apiService.unfavoriteArticle(slug,token)
+        return response
+    }
 
 }
