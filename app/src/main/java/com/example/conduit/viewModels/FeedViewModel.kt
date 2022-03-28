@@ -1,8 +1,11 @@
 package com.example.conduit.viewModels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.conduit.models.requests.UpsertArticleRequest
+import com.example.conduit.models.responses.ArticleResponse
 import com.example.conduit.models.responses.ArticlesResponse
 import com.example.conduit.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,6 +19,8 @@ class FeedViewModel @Inject constructor(val repository : MainRepository) : ViewM
     val feedError = MutableLiveData<String?>()
     val favorited = MutableLiveData<ArticlesResponse>()
     val favoritedError = MutableLiveData<String>()
+    val articlePosted = MutableLiveData<ArticleResponse>()
+    val postArticleError = MutableLiveData<String?>()
 
     fun getArticles(token: String) = viewModelScope.launch {
         repository.getArticles(token).let {
@@ -55,6 +60,20 @@ class FeedViewModel @Inject constructor(val repository : MainRepository) : ViewM
         }
     }
 
-
+    fun postArticle(token: String,article : UpsertArticleRequest) = viewModelScope.launch {
+        repository.postArticle(token, article).let {
+            if(it.isSuccessful)
+            {
+                postArticleError.postValue(null)
+                articlePosted.postValue(it.body())
+                Log.d("feedVM",it.body().toString())
+            }
+            else
+            {
+                Log.d("feedVM",it.message().toString())
+                postArticleError.postValue(it.message())
+            }
+        }
+    }
 
 }

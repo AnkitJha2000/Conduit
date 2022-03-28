@@ -54,7 +54,7 @@ class SignUpFragment : Fragment() {
         authViewModel.signUpUser.observe(requireActivity()) {
             it?.let { user ->
                 Log.d("TEST",user.user.token!!)
-                OfflineSharedPreference(requireActivity()).saveToken(user.user.token!!)
+                OfflineSharedPreference(requireActivity()).saveToken(user.user.token)
                 Toast.makeText(requireContext(), "User Registered", Toast.LENGTH_SHORT).show()
                 val action = SignUpFragmentDirections.actionSignUpFragmentToLoginFragment()
                 findNavController().navigate(action)

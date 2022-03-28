@@ -4,6 +4,8 @@ import android.util.Log
 import com.example.conduit.models.entities.User
 import com.example.conduit.models.requests.LoginRequest
 import com.example.conduit.models.requests.SignUpRequest
+import com.example.conduit.models.requests.UpsertArticleRequest
+import com.example.conduit.models.responses.ArticleResponse
 import com.example.conduit.models.responses.ArticlesResponse
 import com.example.conduit.models.responses.UserResponse
 import com.example.conduit.services.ConduitAPI
@@ -50,6 +52,13 @@ class MainRepository @Inject constructor(
     {
         Log.d("tokenMainRepositoryU",token)
         val response = apiService.unfavoriteArticle(slug,token)
+        return response
+    }
+
+    suspend fun postArticle(token: String,article : UpsertArticleRequest) : Response<ArticleResponse>
+    {
+        Log.d("RepoReceivedArticle",article.toString())
+        val response = apiService.postArticle(token,article)
         return response
     }
 
