@@ -151,6 +151,12 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_profileFragment_to_favoriteArticlesFragment"
+            app:destination="@id/favoriteArticlesFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_myFeedsFragment"
+            app:destination="@id/myFeedsFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileDetailFragment"
@@ -179,5 +185,23 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteArticlesFragment"
+        android:name="com.example.conduit.ui.fragments.FavoriteArticlesFragment"
+        android:label="fragment_favorite_artciles"
+        tools:layout="@layout/fragment_favorite_artciles" >
+        <action
+            android:id="@+id/action_favoriteArticlesFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myFeedsFragment"
+        android:name="com.example.conduit.ui.fragments.MyFeedsFragment"
+        android:label="fragment_my_feeds"
+        tools:layout="@layout/fragment_my_feeds" >
+        <action
+            android:id="@+id/action_myFeedsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

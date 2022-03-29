@@ -7,4 +7,5 @@ object Constants {
         const val MY_FEED = "myFeed"
         const val GLOBAL_FEED = "globalFeed"
         const val FOLLOWED_FEED = "followedFeed"
+        const val FAVORITE_FEED = "favoriteFeed"
 }

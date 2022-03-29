@@ -13,11 +13,13 @@
         <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/feed_single_item_row.xml" value="0.264" />
         <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_add_feed.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_article_details.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_favorite_artciles.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_feed.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_global_feed.xml" value="0.1265625" />
         <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_global_feed_fragment.xml" value="0.1265625" />
         <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_login.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_profile.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_my_feeds.xml" value="0.21376656690893545" />
+        <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_profile_detail.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_profile_details_fragmetn.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/knightbar/AndroidStudioProjects/Conduit/app/src/main/res/layout/fragment_profile_edit.xml" value="0.27447916666666666" />

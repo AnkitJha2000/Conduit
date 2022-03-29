@@ -2,9 +2,7 @@ package com.example.conduit.repository
 
 import android.util.Log
 import com.example.conduit.models.entities.User
-import com.example.conduit.models.requests.LoginRequest
-import com.example.conduit.models.requests.SignUpRequest
-import com.example.conduit.models.requests.UpsertArticleRequest
+import com.example.conduit.models.requests.*
 import com.example.conduit.models.responses.ArticleResponse
 import com.example.conduit.models.responses.ArticlesResponse
 import com.example.conduit.models.responses.UserResponse
@@ -65,6 +63,19 @@ class MainRepository @Inject constructor(
     suspend fun getMyFeed(token: String) : Response<ArticlesResponse>{
         Log.d("RepoMyFeed","articles were called here in main repo")
         val response = apiService.getFeedArticles(token)
+        return response
+    }
+
+    suspend fun updateUser(token: String,user : UpdateUserRequest) : Response<UserResponse>
+    {
+        Log.d("RepoUpdateUser","user was updated in repo")
+        val response = apiService.updateCurrentUser(token,user)
+        return response
+    }
+
+    suspend fun getMyFavoritedArticles(token: String,userName : String) : Response<ArticlesResponse>{
+        Log.d("RepofavoritedArticles","favorited articles are returned")
+        val response = apiService.getMyFavoritedArticles(token, username = userName)
         return response
     }
 

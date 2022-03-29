@@ -23,6 +23,8 @@ class FeedViewModel @Inject constructor(val repository : MainRepository) : ViewM
     val postArticleError = MutableLiveData<String?>()
     val myFeedList = MutableLiveData<ArticlesResponse>()
     val myFeedListError = MutableLiveData<String?>()
+    val favoritedArticlesList = MutableLiveData<ArticlesResponse>()
+    val favoritedListError = MutableLiveData<String?>()
 
     fun getArticles(token: String) = viewModelScope.launch {
         repository.getArticles(token).let {
@@ -90,6 +92,20 @@ class FeedViewModel @Inject constructor(val repository : MainRepository) : ViewM
             {
                 Log.d("feedVM",it.message().toString())
                 myFeedListError.postValue(it.message())
+            }
+        }
+    }
+
+    fun getMyFavoriteArticles(token: String,username : String) = viewModelScope.launch {
+        repository.getMyFavoritedArticles(token,username).let {
+            if(it.isSuccessful)
+            {
+                favoritedArticlesList.postValue(it.body())
+                favoritedListError.postValue(null)
+            }
+            else
+            {
+                favoritedListError.postValue(it.message())
             }
         }
     }

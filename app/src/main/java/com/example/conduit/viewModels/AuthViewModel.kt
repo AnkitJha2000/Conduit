@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.conduit.models.requests.LoginRequest
 import com.example.conduit.models.requests.SignUpRequest
+import com.example.conduit.models.requests.UpdateUserCreds
+import com.example.conduit.models.requests.UpdateUserRequest
 import com.example.conduit.models.responses.UserResponse
 import com.example.conduit.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -67,6 +69,21 @@ class AuthViewModel @Inject constructor(
             else
             {
                 Log.d("currentUserError",it.message().toString())
+                error.postValue(it.message())
+            }
+        }
+    }
+
+    fun updateUser(token: String,updateUserRequest: UpdateUserRequest) = viewModelScope.launch {
+        repository.updateUser(token,updateUserRequest).let {
+            if(it.isSuccessful)
+            {
+                currentUser.postValue(it.body())
+                error.postValue(null)
+            }
+            else
+            {
+                Log.d("updateUserError",it.message().toString())
                 error.postValue(it.message())
             }
         }

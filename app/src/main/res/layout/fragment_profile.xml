@@ -1,14 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="profile fragment" />
+        android:layout_height="wrap_content"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/profileFragmentCardView"
+            android:elevation="10dp"
+            >
 
-</FrameLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ic_profile_face"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"
+                    android:id="@+id/profileFragmentProfileImageIV"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="My Feeds"
+                        android:id="@+id/profileFragmentMyFeedBtn"
+                        />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="Favorited Feeds"
+                        android:id="@+id/profileFragmentFavoriteFeedsBtn"
+                        />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/profileFragmentUserNameET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileFragmentCardView"
+            android:layout_marginTop="30dp"
+            android:hint="UserName"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            />
+
+        <EditText
+            android:id="@+id/profileFragmentBioET"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/profileFragmentUserNameET"
+            android:layout_marginTop="30dp"
+            android:hint="BIO"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            />
+
+        <EditText
+            android:id="@+id/profileFragmentEmailET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileFragmentBioET"
+            android:layout_marginTop="30dp"
+            android:hint="Email"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            />
+
+        <EditText
+            android:id="@+id/profileFragmentPasswordET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileFragmentEmailET"
+            android:layout_marginTop="30dp"
+            android:hint="New Password"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileFragmentPasswordET"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:text="Update Data"
+            android:id="@+id/profileFragmentUpdateUserBtn"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+
+</ScrollView>

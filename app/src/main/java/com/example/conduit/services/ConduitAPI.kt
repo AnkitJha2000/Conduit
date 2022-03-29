@@ -152,10 +152,10 @@ interface ConduitAPI {
 
     // get favorited articles
     @GET("articles")
-    suspend fun getMyFavouritedArticles(
+    suspend fun getMyFavoritedArticles(
         @Header ("Authorization") token:String?,
         @Query ("limit") limit:Int? = null,
-        @Query ("favorited") authorName: String?,
+        @Query ("favorited") username: String?,
     ) : Response<ArticlesResponse>
 
 }
