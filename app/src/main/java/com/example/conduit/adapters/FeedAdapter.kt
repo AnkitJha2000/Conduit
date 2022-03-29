@@ -60,15 +60,6 @@ class FeedAdapter(val feedType : String,private val cellClickListener: CellClick
             .placeholder(R.drawable.ic_profile_face)
             .into(holder.itemProfileImage)
 
-        if(feed.favorited == true)
-        {
-            holder.itemFavoriteButton.setImageResource(R.drawable.baseline_favorite_black_24dp)
-        }
-        else
-        {
-            holder.itemFavoriteButton.setImageResource(R.drawable.baseline_favorite_border_black_24dp)
-        }
-
         if(feedType == Constants.MY_FEED)
         {
             holder.itemEditButton.visibility = View.VISIBLE

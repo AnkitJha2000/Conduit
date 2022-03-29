@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() {
             val tokenFormatted = "Token $token"
             authViewModel.getCurrentUser(tokenFormatted)
             feedViewModel.getArticles(tokenFormatted)
+            feedViewModel.getMyFeed(tokenFormatted)
         }
     }
 

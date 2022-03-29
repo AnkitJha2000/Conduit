@@ -62,4 +62,10 @@ class MainRepository @Inject constructor(
         return response
     }
 
+    suspend fun getMyFeed(token: String) : Response<ArticlesResponse>{
+        Log.d("RepoMyFeed","articles were called here in main repo")
+        val response = apiService.getFeedArticles(token)
+        return response
+    }
+
 }

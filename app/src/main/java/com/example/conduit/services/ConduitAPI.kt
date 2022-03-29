@@ -88,7 +88,9 @@ interface ConduitAPI {
 
     // get articles from feed
     @GET("articles/feed")
-    suspend fun getFeedArticles() : Response<ArticlesResponse>
+    suspend fun getFeedArticles(
+        @Header("Authorization") token : String
+    ) : Response<ArticlesResponse>
 
     // add article to favorite
     @POST("articles/{slug}/favorite")
